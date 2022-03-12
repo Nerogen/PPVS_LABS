@@ -1,0 +1,48 @@
+@startuml
+[*] --> Options: user appears
+
+Options --> PutMoneyOnTheCard: choose "card"
+PutMoneyOnTheCard --> Validation
+Validation --> Transaction: operation confirmed
+Validation --> Options: operation not confirmed
+Transaction --> Options
+
+Options --> TakeMoneyFromTheCard: choose "card"
+TakeMoneyFromTheCard--> Validation
+Validation --> Transaction: operation confirmed
+Validation --> Options: operation not confirmed
+Transaction --> Options
+
+
+Options --> GetAccountInfo: choose "card"
+GetAccountInfo--> Validation
+Validation --> Transaction: operation confirmed
+Validation --> Options: operation not confirmed
+Transaction --> Options
+
+
+
+Options --> RegistrationNewCreditCard: input data about new user
+RegistrationNewCreditCard --> Validation
+Validation --> UpdateInfo: new user added
+Validation --> Options: user already exist
+UpdateInfo --> Options
+
+
+Options --> RegistrationNewPhone: input data about new phone
+RegistrationNewPhone --> Validation
+Validation --> NewAbonent: abonent added
+Validation --> Options: abonent already exist
+NewAbonent --> Options
+
+
+Options --> PutMoneyOnPhone: choose "card" and "phone number"
+PutMoneyOnPhone --> Validation
+Validation --> Transaction: operation confirmed
+Validation --> Options: operation not confirmed
+Transaction --> Options
+
+
+Options --> Exit: choose "exit"
+Exit --> [*]
+@enduml
