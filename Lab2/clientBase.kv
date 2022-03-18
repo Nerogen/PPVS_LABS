@@ -1,0 +1,134 @@
+<ItemLabel@BackgroundLabel>:
+    size_hint: None, None
+    size: 385,35
+
+<ItemTextInput@TextInput>:
+    size_hint: None, None
+    size: 385,35
+    input_type: 'number'
+    input_filter: 'int'
+    multiline: False
+
+<ItemButton@Button>:
+    size_hint: None, None
+    size: 190,100
+
+<BackgroundColor@Widget>
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+# Now you can simply Mix the `BackgroundColor` class with almost
+# any other widget... to give it a background.
+<BackgroundLabel@Label+BackgroundColor>
+    background_color: 0, 0, 0, 0
+    # Default the background color for this label
+    # to r 0, g 0, b 0, a 0
+
+
+<container>:
+    rows: 3
+    padding: 50
+
+    # weak link on objects
+    initials: input_widget1
+    account: input_widget2
+    address: input_widget3
+    mobile_phone: input_widget4
+    home_phone: input_widget5
+
+    label_widget: label
+
+    FloatLayout:
+        BoxLayout:
+            pos: 200,135
+            orientation: 'vertical'
+
+            ItemLabel:
+                text: "Name"
+
+            TextInput:
+                id: input_widget1
+                size_hint: None, None
+                size: 385,35
+                multiline: False
+
+            ItemLabel:
+                text: "Account number"
+
+            ItemTextInput:
+                id: input_widget2
+
+            ItemLabel:
+                text: "Address"
+
+            ItemTextInput:
+                id: input_widget3
+
+            ItemLabel:
+                text: 'Mobile phone'
+
+            ItemTextInput:
+                id: input_widget4
+
+            ItemLabel:
+                text: 'Home phone'
+
+            ItemTextInput:
+                id: input_widget5
+
+
+    FloatLayout:
+        ItemLabel:
+        # label for show result searching
+            color: 0,1,0,1
+            background_color: 0,0,0,1
+            pos: 588, 27
+            size: 300,423
+            id: label
+            text: "Welcome!"
+
+    FloatLayout:
+        ItemButton:
+            text: "Create client"
+            pos: 0,350
+            on_release:
+                root.update_user_base()
+
+    FloatLayout:
+        ItemButton:
+            text: "Search client"
+            pos: 0,242
+            on_release:
+                root.search_user_info()
+
+    FloatLayout:
+        ItemButton:
+            text: "Delete client"
+            pos: 0,134
+            on_release:
+                root.delete_user_info()
+
+    FloatLayout:
+        ItemButton:
+            text: "Clear fields"
+            pos: 0,27
+            on_release:
+                root.clear_fields()
+
+    FloatLayout:
+        ItemButton:
+            text: "Clear search info"
+            pos: 198,27
+            on_release:
+                root.clear_search_info()
+
+    FloatLayout:
+        ItemButton:
+            text: "View all info"
+            pos: 396,27
+            on_release:
+                root.view_all_info()
