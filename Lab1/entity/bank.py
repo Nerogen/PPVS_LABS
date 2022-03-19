@@ -13,7 +13,7 @@ class Bank:
         return self.__read_info
 
     @read_info.setter
-    def read_info(self, file_name=read_info) -> None:
+    def read_info(self, file_name) -> None:
         bank_accounts, phone_numbers = Serialization.read(file_name)
         self.__phones_info = phone_numbers
         self.__bank_info = bank_accounts

@@ -18,10 +18,10 @@ def test_main() -> None:
         '111111': phone
     }
     bank = Bank(account, phones, 'bank.pickle')
-    human = Human(account, phones, 10000, 'human.pickle')
-    Action.put_money_on_the_card(bank, human, 1, 10000, 123, 1111)
+    human = Human(account, phones, 100000, 'human.pickle')
+    Action.put_money_on_the_card(bank, human, 1, 3000, 123, 1111)
     print(Action.get_account_info(bank, 1, 123, 1111))
-    Action.take_money_from_the_card(bank, human, 1, 3000, 123, 1111)
+    Action.take_money_from_the_card(bank, human, 1, 1000, 123, 1111)
     print(Action.get_account_info(bank, 1, 123, 1111))
     Action.put_money_on_phone(bank, human, '111111', 1, 1000, 123, 1111)
     print(Action.get_account_info(bank, 1, 123, 1111))
@@ -30,7 +30,7 @@ def test_main() -> None:
     print(Action.get_account_info(bank, 3, 456, 1234))
 
 
-def main() -> None:
+def main():
     bank = None
     human = None
     trigger = True
@@ -74,23 +74,23 @@ def main() -> None:
                         case 1:
                             account = int(input('Input number of bank account: '))
                             number_of_money = int(input('Input number of money which you need put: '))
-                            card_number = int(input('Input card number'))
+                            card_number = int(input('Input card number: '))
                             pin_code = int(input('Input pin code: '))
                             Action.put_money_on_the_card(bank, human, account, number_of_money, card_number, pin_code)
                         case 2:
                             account = int(input('Input number of bank account: '))
                             value = int(input('Input number of money which you need put: '))
-                            card_number = int(input('Input card number'))
+                            card_number = int(input('Input card number: '))
                             pin_code = int(input('Input pin code: '))
                             Action.take_money_from_the_card(bank, human, account, value, card_number, pin_code)
                         case 3:
                             account = int(input('Input number of bank account: '))
-                            card_number = int(input('Input card number'))
+                            card_number = int(input('Input card number: '))
                             pin_code = int(input('Input pin code: '))
-                            Action.get_account_info(bank, account, card_number, pin_code)
+                            print(Action.get_account_info(bank, account, card_number, pin_code))
                         case 4:
                             credit_card_number = int(input('Input number of bank credit card: '))
-                            pin_code = int(input('Input pic code: '))
+                            pin_code = int(input('Input pin code: '))
                             credit_card = CreditCard(credit_card_number, pin_code)
                             Action.registration_new_credit_card(bank, human, (len(human.bank_accounts), credit_card))
                         case 5:
@@ -101,7 +101,7 @@ def main() -> None:
                             account = int(input('Input number of bank account: '))
                             value = int(input('Input number of money which you need put: '))
                             phone_number = input('Input phone number: ')
-                            card_number = int(input('Input card number'))
+                            card_number = int(input('Input card number: '))
                             pin_code = int(input('Input pin code: '))
                             Action.put_money_on_phone(bank, human, phone_number, account, value, card_number, pin_code)
                         case _:
@@ -111,8 +111,8 @@ def main() -> None:
                 if bank is None and human is None:
                     print("Entity doesn't exist")
                 else:
-                    bank.read_info = ''
-                    human.read_file = ''
+                    bank.read_info = input('Input file for thread bank: ') + '.pickle'
+                    human.read_file = input('Input file for thread human: ') + '.pickle'
             case _:
                 print('Not has any actions!')
         system('cls')

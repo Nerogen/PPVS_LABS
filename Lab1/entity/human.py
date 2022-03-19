@@ -25,7 +25,7 @@ class Human:
         return self.__read_info
 
     @read_file.setter
-    def read_file(self, file_name=read_file) -> None:
+    def read_file(self, file_name) -> None:
         bank_accounts, phone_numbers, cash = Serialization.read(file_name)
         self.__cash = cash
         self.__phones = phone_numbers
