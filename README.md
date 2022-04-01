@@ -4,7 +4,7 @@
 - Language: Python🐍
 - Development approach: Kivy.
 ## 📌List of labaratory works:
-- [ ] 1 - Bank system.
+- [X] 1 - Bank system.
 - [ ] 2 - Ui interface with Kivy.
 - [ ] 3 - ...
 - [ ] 4 - ...
