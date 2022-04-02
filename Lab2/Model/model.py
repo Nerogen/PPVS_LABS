@@ -87,7 +87,13 @@ class Model(View):
             self.logger.append(f'User {box[0]} not found!')
         else:
             self.logger.append(f'Number of user with this info: {len(indexes)}!')
-        self.update_view_menu()
+            for i in indexes:
+                self.logger.append(
+                    f'Name: {self.user_base[i][0]} Account number: {self.user_base[i][1]} '
+                    f'Address: {self.user_base[i][2]} Mobile phone: {self.user_base[i][3]} '
+                    f'Home phone: {self.user_base[i][4]}')
+
+                self.update_view_menu()
 
         return indexes
 
