@@ -5,6 +5,6 @@
 - Development approach: Kivy.
 ## 📌List of labaratory works:
 - [X] 1 - Bank system.
-- [ ] 2 - Ui interface with Kivy.
+- [X] 2 - Ui interface with Kivy.
 - [ ] 3 - ...
 - [ ] 4 - ...
