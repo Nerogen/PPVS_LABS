@@ -32,7 +32,7 @@ def test_main() -> None:
     print(Action.get_account_info(bank, 3, 456, 1234))
 
 
-def main():
+def cli():
     bank = None
     human = None
     trigger = True
@@ -120,5 +120,13 @@ def main():
         system('cls')
 
 
+def choice():
+    flag = input("Input 1 if want ui:")
+    if flag == '1':
+        Controller().run()
+    else:
+        cli()
+
+
 if __name__ == '__main__':
-    Controller().run()
+    choice()
