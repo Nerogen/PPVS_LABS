@@ -23,6 +23,7 @@ class Controller(View, Model):
                 int(self.screen.ids.pin_code_of_put_money_on_the_card.text)
             )
         except ValueError:
+            self.user_info("Type is not defined!")
             print('Type is not defined!')
 
         self.update_view_menu(self.bank.bank_info, self.human.cash)
@@ -38,6 +39,7 @@ class Controller(View, Model):
                 int(self.screen.ids.pin_code_of_take_money_from_the_card.text)
             )
         except ValueError:
+            self.user_info("Type is not defined!")
             print('Type is not defined!')
 
         self.update_view_menu(self.bank.bank_info, self.human.cash)
@@ -53,6 +55,7 @@ class Controller(View, Model):
                 )
             )
         except ValueError:
+            self.user_info("Type is not defined!")
             print('Type is not defined!')
 
     def put_on_phone(self):
@@ -67,6 +70,7 @@ class Controller(View, Model):
                 int(self.screen.ids.pin_code_of_put_money_on_phone.text)
             )
         except ValueError:
+            self.user_info("Type is not defined!")
             print('Type is not defined!')
 
         self.update_view_menu(self.bank.phones_info, self.human.cash, True)
@@ -85,6 +89,7 @@ class Controller(View, Model):
             )
         except ValueError:
             print('Type is not defined!')
+            self.user_info("Type is not defined!")
         self.user_info("Added new credit card!")
 
     def registration_new_phone(self):
