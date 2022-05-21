@@ -6,5 +6,5 @@
 ## 📌List of labaratory works:
 - [X] 1 - Bank system.
 - [X] 2 - Ui interface with Kivy.
-- [ ] 3 - Pacman game with Pygame.
-- [ ] 4 - Ui interface of bank system.
+- [X] 3 - Pacman game with Pygame.
+- [X] 4 - Ui interface of bank system.
