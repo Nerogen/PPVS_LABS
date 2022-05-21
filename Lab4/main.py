@@ -5,7 +5,7 @@ from Lab1.entity.credit_card import CreditCard
 from Lab1.entity.human import Human
 from Lab1.entity.phone import Phone
 from Lab1.logic.action import Action
-from Lab4.Conctroller.controller import Controller
+from Lab4.Controller.controller import Controller
 
 
 def test_main() -> None:
